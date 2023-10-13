@@ -27,11 +27,16 @@ int xor8(FILE* inp, int* ans) {
 
 int xor32(FILE* inp, int* ans) {
     *ans = 0;
-    unsigned int data;
+    unsigned char buffer[4];
 
-    while (fread(&data, sizeof(unsigned int), 1, inp) > 0) {
-        *ans ^= data;
-    }  
+    int cnt;
+    while ((cnt = fread(buffer, sizeof(char), 4, inp)) != 0) {
+        int num = 0;
+        for (int i = 0; i < cnt; i++) {
+            num += buffer[i] << 8*(3-i);
+        }
+        *ans ^= num;
+    }
 
     return ok;
 }
@@ -43,7 +48,6 @@ int mask(FILE* inp, int* ans, char* hex) {
     if ((errno == ERANGE && (mask == ULONG_MAX || mask == 0))) {
         return OVERFLOW;
     }
-
 
     unsigned int data;
     *ans = 0;
