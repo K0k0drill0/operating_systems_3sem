@@ -1,0 +1,2 @@
+prior=1 text="I love \"Paris!!\""
+prior=0 text="terminator"

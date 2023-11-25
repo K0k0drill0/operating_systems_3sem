@@ -1,0 +1,7 @@
+prior=3 text="2,           ,,9\"99\" ."
+prior=7 text="Hello         World!!"
+prior=1 text="Python is my favorite language!!!..."
+prior=5 text="Where is my greatest Lab’’’ work???"
+prior=2 text=" Yes!"
+prior=3 text="No……"
+prior=2 text="12,,,4 6"
