@@ -71,8 +71,14 @@ int main (int argc, char **argv)
         }
         printf("%ld\n", message.message_type);
 
+        int client_qid = message.message_text.qid;
+
         if (message.message_type == TERMINATION_PRIORITY) {
             printf("Terminator has come!\n");
+            if (msgsnd (client_qid, &message, sizeof (struct message_text), 0) == -1) {  
+                perror ("msgget");
+                exit (1);
+            }
             exit (1);
         }
 
@@ -80,7 +86,7 @@ int main (int argc, char **argv)
 
         process_message(&message);
 
-        int client_qid = message.message_text.qid;
+        
         //message.message_text.qid = qid;
 
         // send reply message to client

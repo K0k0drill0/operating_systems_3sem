@@ -165,8 +165,8 @@ int get_message(FILE* inp, message* msg) {
 
 int main (int argc, char **argv)
 {
-    argc = 2;
-    argv[1] = "pathes.txt";
+    // argc = 2;
+    // argv[1] = "pathes.txt";
     if (argc != 2) {
         print_error(WRONG_AMOUNT_OF_ARGS);
         return 1;
